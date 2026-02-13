@@ -163,7 +163,7 @@ def show_brand_header():
 
         with logo_col:
             st.markdown("<div style='margin-top:22px'></div>", unsafe_allow_html=True)
-            st.image("nmk_logo.png", width=140)
+            st.image("frontend/nmk_logo.png", width=140)
 
         with text_col:
             st.markdown(
@@ -280,7 +280,7 @@ def login_ui():
 
         with logo_col:
             st.markdown("<div style='margin-top:22px'></div>", unsafe_allow_html=True)
-            st.image("nmk_logo.png", width=160)
+            st.image("frontend/nmk_logo.png", width=160)
 
         with text_col:
             st.markdown(
@@ -382,7 +382,7 @@ def register_ui():
 
         with logo_col:
             st.markdown("<div style='margin-top:22px'></div>", unsafe_allow_html=True)
-            st.image("nmk_logo.png", width=160)
+            st.image("frontend/nmk_logo.png", width=160)
 
         with text_col:
             st.markdown(
@@ -1363,7 +1363,7 @@ def main():
     auto_resume_exam_if_needed()
 
     # -------- SIDEBAR --------
-    st.sidebar.image("nmk_logo.png", width=160)
+    st.sidebar.image("frontend/nmk_logo.png", width=160)
     st.sidebar.title("NMK Portal")
     st.sidebar.write(f"**User:** {st.session_state['user_email']}")
     st.sidebar.divider()
@@ -1371,17 +1371,16 @@ def main():
     if st.session_state["is_admin"]:
         page = st.sidebar.radio(
             "Navigation",
-            ["Exams", "Admin Dashboard", "Change Password"]
+            ["Admin Dashboard", "Change Password"]
         )
     else:
         page = st.sidebar.radio(
             "Navigation",
-            ["Exams", "Change Password"]
+            [ "Change Password"]
         )
 
-    if page == "Exams":
-        st.session_state["page"] = "home"
-    elif page == "Admin Dashboard":
+    
+    if page == "Admin Dashboard":
         st.session_state["page"] = "admin_dashboard"
     elif page == "Change Password":
         st.session_state["page"] = "change_password"
